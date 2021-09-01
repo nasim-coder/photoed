@@ -1,0 +1,22 @@
+{
+  "name": "imgur",
+  "version": "1.0.0",
+  "description": "learning express",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NakRex/Imgur.git"
+  },
+  "author": "NakRex",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NakRex/Imgur/issues"
+  },
+  "homepage": "https://github.com/NakRex/Imgur#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
