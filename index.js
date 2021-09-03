@@ -16,7 +16,7 @@ db.once('open', function(){
 })
 app.use(express.json());
 const subsribersRouter = require('./routes/subscribers');
-app.use('subscribers', subsribersRouter);
+app.use('subscribers', subscribersRouter);
 
 
 app.listen(PORT, function(){
