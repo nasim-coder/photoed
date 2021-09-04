@@ -2,7 +2,7 @@ const express = require('express');
 const env = require('dotenv');
 env.config();
 const app = express();
-const PORT = 8080; 
+const PORT = 3000; 
 const mongose = require('mongoose');
 mongose.connect(process.env.DATABASE_URL);
 const db = mongose.connection;
@@ -15,10 +15,13 @@ db.once('open', function(){
     console.log("connected to database");
 })
 app.use(express.json());
-const subsribersRouter = require('./routes/subscribers');
+const subscribersRouter = require('./routes/subscribers');
 app.use('subscribers', subscribersRouter);
 
 
 app.listen(PORT, function(){
-console.log("server is running on port 8080");
+console.log("server is running on port 3000");
 })
+
+//https://bezkoder.com/node-js-tutorial/
+//https://github.com/gothinkster/node-express-realworld-example-app
