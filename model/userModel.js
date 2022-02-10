@@ -12,6 +12,7 @@ let userSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    
 });
 
 let User = mongoose.model('User', userSchema);
