@@ -22,6 +22,3 @@ app.use('subscribers', subscribersRouter);
 app.listen(PORT, function(){
 console.log("server is running on port 3000");
 })
-
-//https://bezkoder.com/node-js-tutorial/
-//https://github.com/gothinkster/node-express-realworld-example-app
