@@ -1,5 +1,6 @@
 const User = require('../model/userModel');
-const Photo= require('../model/photo')
+const Photo = require('../model/photo');
+const bcrypt = require('bcryptjs')
 
 //creating sign up function for the user
 exports.signUp = (req, res) => {
