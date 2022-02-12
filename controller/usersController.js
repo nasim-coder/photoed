@@ -18,6 +18,7 @@ exports.signUp = (req, res) => {
     });
 
 };
+
 //login function for the user and assigning token
 exports.login = async (req, res) => {
     const { email, password } = req.body;
@@ -34,7 +35,6 @@ exports.login = async (req, res) => {
         res.status(400).send("invalid credential")
     }
 }
-
 
 //fuction to upload file and book data
 exports.addPhoto = async (req, res) => {
