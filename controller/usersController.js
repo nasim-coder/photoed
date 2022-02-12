@@ -41,12 +41,12 @@ exports.addPhoto = async (req, res) => {
     const photo = new Photo({
         caption: caption,
         fileId: req.file.id
-    })
-    await photo.save((err, book) => {
+    });
+    await photo.save((err, photo) => {
         if (err) {
             res.status(400).json({ msg: err })
         } else {
-            res.status(200).json(book)
+            res.status(200).json(photo)
         }
     })
 }
