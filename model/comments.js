@@ -9,7 +9,6 @@ let commentSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-
 })
 
 let Comment = mongoose.model('Comment', commentSchema);

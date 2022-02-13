@@ -1,6 +1,7 @@
 const User = require('../model/userModel');
 const Photo = require('../model/photo');
-const bcrypt = require('bcryptjs')
+const bcrypt = require('bcryptjs');
+const mongoose = require('mongoose');
 
 //creating sign up function for the user
 exports.signUp = (req, res) => {
@@ -50,4 +51,9 @@ exports.addPhoto = async (req, res) => {
             res.status(200).json(photo)
         }
     })
+}
+
+exports.likeIt = (req, res) => {
+    u_id = mongoose.Types.ObjectId(req.userId);
+    Photo.findByIdAndUpdate()
 }
