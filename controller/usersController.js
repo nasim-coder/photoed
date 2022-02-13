@@ -54,6 +54,9 @@ exports.addPhoto = async (req, res) => {
 }
 
 exports.likeIt = (req, res) => {
-    u_id = mongoose.Types.ObjectId(req.userId);
-    Photo.findByIdAndUpdate()
+    let photo = Photo.findById(mongoose.Types.ObjectId(req.photoId));
+    if (!photo.likedBy.includes(req.userId)) {
+        photo.likedby.push(req.userId);
+    }
+    photo.save();
 }
