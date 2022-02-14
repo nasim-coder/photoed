@@ -7,9 +7,10 @@ let commentSchema = new mongoose.Schema({
     },
     comment: {
         type: String,
-        required: true
+        required: true,
+        maxlength:500
     },
 })
 
-let Comment = mongoose.model('Comment', commentSchema);
-module.exports = Comment;
+let Comments = mongoose.model('Comments', commentSchema);
+module.exports = Comments;

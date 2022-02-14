@@ -16,6 +16,10 @@ let photoSchema = new mongoose.Schema({
     fileId: {
         type: mongoose.Types.ObjectId,
         required:true
+    },
+    comments: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Comments'
     }
 })
 
