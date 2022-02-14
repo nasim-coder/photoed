@@ -17,10 +17,11 @@ let photoSchema = new mongoose.Schema({
         type: mongoose.Types.ObjectId,
         required:true
     },
-    comments: {
+    comments: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Comments'
-    }
+    
+    }]
 })
 
 let Photo = mongoose.model('Photo', photoSchema);

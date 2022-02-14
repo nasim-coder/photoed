@@ -62,13 +62,19 @@ exports.likeIt = (req, res) => {
     photo.save();
 };
 
-exports.doComment = (req, res) => {
+exports.doComment = async (req, res) => {
+    let photoId = req.body.photoId;
     let comment = req.body.comment;
     let userId = req.body.userId;
-    let comment = new Comments({
+    let mycomment = new Comments({
         userId: userId,
         comment: comment
     });
-
+    // mycomment.save();
+    let photo = await Photo.findById(mongoose.Types.ObjectId(photoId))
+    console.log(photo);
+    console.log(photo.comments.push(mycomment.id));
+    photo.save()
+    res.send({msg:'abcd'})
 }
 
