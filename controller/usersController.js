@@ -72,9 +72,10 @@ exports.doComment = async (req, res) => {
     });
     // mycomment.save();
     let photo = await Photo.findById(mongoose.Types.ObjectId(photoId))
-    console.log(photo);
-    console.log(photo.comments.push(mycomment.id));
-    photo.save()
+   
+    photo.comments.push(mycomment.id);
+    mycomment.save();
+    photo.save();
     res.send({msg:'abcd'})
 }
 
