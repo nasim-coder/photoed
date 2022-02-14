@@ -2,6 +2,7 @@ const User = require('../model/userModel');
 const Photo = require('../model/photo');
 const bcrypt = require('bcryptjs');
 const mongoose = require('mongoose');
+const Comments= require('../model/comments')
 
 //creating sign up function for the user
 exports.signUp = (req, res) => {
@@ -59,4 +60,15 @@ exports.likeIt = (req, res) => {
         photo.likedby.push(req.userId);
     }
     photo.save();
+};
+
+exports.doComment = (req, res) => {
+    let comment = req.body.comment;
+    let userId = req.body.userId;
+    let comment = new Comments({
+        userId: userId,
+        comment: comment
+    });
+
 }
+
