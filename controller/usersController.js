@@ -72,10 +72,17 @@ exports.doComment = async (req, res) => {
     });
     // mycomment.save();
     let photo = await Photo.findById(mongoose.Types.ObjectId(photoId))
-   
-    photo.comments.push(mycomment.id);
-    mycomment.save();
-    photo.save();
-    res.send({msg:'abcd'})
+    await photo.comments.push(mycomment.id);
+    await mycomment.save((err, mycomment) => {
+        if (err) {
+            res.status(500).send({success: false, msg: err})
+        }
+    });
+    await photo.save((err, photo) => {
+        if (err) {
+            return res.status(500).send({success: false, msg: err})
+        }
+    });
+    return res.status(200).send({success: true, msg: "done"})
 }
 
