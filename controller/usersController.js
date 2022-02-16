@@ -86,11 +86,18 @@ exports.doComment = async (req, res) => {
     return res.status(200).send({success: true, msg: "done"})
 }
 
+
+//initializing gridfs storage
+let gfs;
+mongoose.connection.once("open", () => {
+    gfs = new mongoose.mongo.GridFSBucket(mongoose.connection.db, { bucketName: "uploads" });
+});
+
 //read file
 exports.getPhoto = async (req, res) => {
     let id = req.params.id;
     console.log(id);
-    let o_id = mongoose.Types.ObjectId(id);
+    let o_id = id;
     await gfs.find({ _id: o_id })
         .toArray((err, files) => {
             if (!files || files.length === 0) {
