@@ -97,9 +97,11 @@ mongoose.connection.once("open", () => {
 exports.getPhoto = async (req, res) => {
     let id = req.params.id;
     console.log(id);
-    let o_id = id;
+    
+    let o_id = mongoose.Types.ObjectId(id);
     await gfs.find({ _id: o_id })
         .toArray((err, files) => {
+            // console.log(files);
             if (!files || files.length === 0) {
                 return res.status(404).json({
                     err: "no files exist"
