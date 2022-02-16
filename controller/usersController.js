@@ -86,3 +86,18 @@ exports.doComment = async (req, res) => {
     return res.status(200).send({success: true, msg: "done"})
 }
 
+//read file
+exports.getPhoto = async (req, res) => {
+    let id = req.params.id;
+    console.log(id);
+    let o_id = mongoose.Types.ObjectId(id);
+    await gfs.find({ _id: o_id })
+        .toArray((err, files) => {
+            if (!files || files.length === 0) {
+                return res.status(404).json({
+                    err: "no files exist"
+                });
+            }
+            gfs.openDownloadStream(o_id).pipe(res)
+        });
+}
