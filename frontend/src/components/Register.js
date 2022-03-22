@@ -1,6 +1,10 @@
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 
 class Register extends Component() {
+    constructor(
+        const { value, setValue } = useState;
+)
+    
     render() {
         return (
             <div>
